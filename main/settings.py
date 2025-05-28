@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from dotenv import load_dotenv
 load_dotenv()
+user = os.getenv('USER')
+password = os.getenv('PASSWORD')
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,7 +24,7 @@ SECRET_KEY = 'thn+&t-%s0=7!zo_d1ovp*(b%p&$0uoxp&7b$xeukov_i-oe5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -58,7 +61,8 @@ DATABASES = {
         'NAME': 'netology_models_list',
         'HOST': 'localhost',
         'PORT': '5432',
-        'USER': 'postgres'
+        'USER': user,
+        'PASSWORD': password
     }
 }
 

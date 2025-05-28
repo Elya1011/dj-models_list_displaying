@@ -17,16 +17,13 @@
                     <p>Дата публикации: {{ book.pub_date|date:"Y-m-d" }}</p>
                 </div>
             {% endfor %}
-            <div class="book col-md-4">
-                <h2>Сияние</h2>
-                <p>Автор: Стивен Кинг</p>
-                <p>Дата публикации: 2018-09-10</p>
-            </div>
-            <div class="book col-md-4">
-                <h2>1984</h2>
-                <p>Автор: Джордж Оруэл</p>
-                <p>Дата публикации: 2015-03-11</p>
-            </div>
         </div>
+        {% if page_obj.has_previous %}
+            <a class="button button-primary" href="{{ prev_page }}">{{ prev_page }}</a>
+        {% endif %}
+        <a class="button disabled" href="">{{ pub_date }}</a>
+        {% if page_obj.has_next %}
+            <a class="button button-primary" href="{{ next_page }}">{{ next_page }}</a>
+        {% endif %}
     </div>
 {% endblock %}

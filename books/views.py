@@ -9,20 +9,6 @@ def books_view(request):
     context = {'books': books}
     return render(request, template, context)
 
-# def show_book(request, pub_date):
-#     template = 'books/books_by_date.html'
-#     books = Book.objects.order_by('-pub_date')
-#     context = {'books': books}
-#     pub_date_dict = {}
-#     for book in books:
-#         pub_date_dict[book.pub_date] =
-#     paginator = Paginator(books, 1)
-#     page_number = request.GET.get('page', pub_date_dict[0])
-#     page_obj = paginator.get_page(page_number)
-#     context['page_obj'] = page_obj
-#     context['pub_date'] = pub_date
-#     return render(request, template, context)
-
 def show_book(request, pub_date):
     template = 'books/books_by_date.html'
     books = Book.objects.order_by('-pub_date')
@@ -35,7 +21,6 @@ def show_book(request, pub_date):
     for index, date in enumerate(date_list):
         if date == pub_date:
             page_number = index + 1
-    print(page_number)
     page_obj = paginator.get_page(page_number)
     context['page_obj'] = page_obj
     context['pub_date'] = pub_date
